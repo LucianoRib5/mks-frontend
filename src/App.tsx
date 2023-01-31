@@ -1,8 +1,9 @@
-const App: React.FC = () => {
+import Home from "./pages/Home"
 
+const App: React.FC = () => {
   return (
-    <>MKS Sistemas</>
-  )
-}
+    <Home/>
+  );
+};
 
 export default App;
