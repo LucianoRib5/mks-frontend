@@ -1,8 +1,10 @@
+import { Container } from "./styles";
+
 const Footer: React.FC = () => {
     return (
-        <footer>
-            <p>Todos os direitos reservados</p>
-        </footer>
+        <Container>
+            <p>MKS sistemas © Todos os direitos reservados</p>
+        </Container>
     );
 };
 

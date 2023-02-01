@@ -1,8 +1,10 @@
+import { Container } from "./styles";
+
 const Header: React.FC = () => {
     return (
-        <header>
+        <Container>
             <h1>LOGO</h1>
-        </header>
+        </Container>
     );
 };
 

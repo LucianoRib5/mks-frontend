@@ -1,7 +1,9 @@
+import { Container } from "./styles";
+
 const CardBuyProduct: React.FC = () => {
     return (
-        <div>
-        </div>
+        <Container>
+        </Container>
     );
 };
 

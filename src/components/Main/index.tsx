@@ -1,8 +1,14 @@
-const Main: React.FC = () => {
+import { Container } from "./styles";
+
+interface Props {
+    children: React.ReactNode;
+}
+
+const Main: React.FC<Props> = ({children}) => {
     return (
-        <main>
-            <h1>Conteúdo</h1>
-        </main>
+        <Container>
+            {children}
+        </Container>
     );
 };
 
