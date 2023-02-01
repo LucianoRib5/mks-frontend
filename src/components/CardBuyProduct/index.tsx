@@ -1,11 +1,10 @@
 import { Container } from "./styles";
 
-const Header: React.FC = () => {
+const CardBuyProduct: React.FC = () => {
     return (
         <Container>
-            <h1>LOGO</h1>
         </Container>
     );
 };
 
-export default Header;
+export default CardBuyProduct;
