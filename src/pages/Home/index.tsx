@@ -4,6 +4,7 @@ import CardBuyProduct from "../../components/CardBuyProduct";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
+import ProductGrid from "../../components/ProductGrid";
 import { get } from "../../services/api"
 import { IProduct } from "../../types/IProduct";
 
@@ -31,7 +32,9 @@ const Home: React.FC = () => {
         <Body>
             <Header/>
             <Main>
-                <CardBuyProduct/>              
+                <ProductGrid>
+                    {products.map(p => <CardBuyProduct/>)}
+                </ProductGrid>              
             </Main>
             <Footer/>
         </Body>
