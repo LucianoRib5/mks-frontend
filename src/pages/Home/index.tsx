@@ -11,6 +11,9 @@ import { IProduct } from "../../types/IProduct";
 const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    console.log('products:', products);
+    
     
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +36,15 @@ const Home: React.FC = () => {
             <Header/>
             <Main>
                 <ProductGrid>
-                    {products.map(p => <CardBuyProduct/>)}
+                    {products.map(p => 
+                        <CardBuyProduct 
+                            key={p.id} 
+                            name={p.name}
+                            description={p.description} 
+                            photo={p.photo}
+                            price={p.price}
+                        />
+                    )}
                 </ProductGrid>              
             </Main>
             <Footer/>
