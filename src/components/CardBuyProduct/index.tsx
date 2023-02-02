@@ -1,7 +1,15 @@
 import { IProduct } from "../../types/IProduct";
 import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
-import { Container, Title, Description, Name, Price  } from "./styles";
-
+import { RiShoppingBag3Line } from 'react-icons/ri';
+import { 
+    Container, 
+    Content, 
+    Title, 
+    Description, 
+    Name, 
+    Price, 
+    BuyButton  
+} from "./styles";
 interface Props {
     product: IProduct;
     state: IProductInShoppingCart[];
@@ -41,13 +49,15 @@ const CardBuyProduct: React.FC<Props> = props => {
     
     return (
         <Container>
-            <img src={product.photo} alt={product.name}/>
-            <Title>
-                <Name>{product.name}</Name>
-                <Price>{product.price}</Price>
-            </Title>
-            <Description>{product.description}</Description>
-            <button onClick={() => addProductToCart(product)}>COMPRAR</button>
+            <Content>
+                <img src={product.photo} alt={product.name}/>
+                <Title>
+                    <Name>{product.name}</Name>
+                    <Price>{product.price}</Price>
+                </Title>
+                <Description>{product.description}</Description>
+            </Content>
+            <BuyButton onClick={() => addProductToCart(product)}><RiShoppingBag3Line fontSize={'18px'}/>COMPRAR</BuyButton>
         </Container>
     );
 };

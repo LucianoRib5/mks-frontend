@@ -1,5 +1,7 @@
 import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
-import { Container, QtyControl } from "./styles";
+import { Title } from "../CardBuyProduct/styles";
+import { Container, Name, Price, Qty, TitleQty, QtyControl, RemoveButton } from "./styles";
+import { MdRemove, MdAdd } from 'react-icons/md';
 
 interface Props {
     product: IProductInShoppingCart;
@@ -46,17 +48,21 @@ const CartProductCard: React.FC<Props> = props => {
     return (
         <Container>
             <img src={product.photo} alt={product.name}/>
-            <div>{product.name}</div>
-            <div>
-            <div>Qtd:</div>
-            <QtyControl>
-                <button disabled={product.qty === 1 && true} onClick={() => quantityDown(product)}> - </button>
-                <div>{product.qty}</div>
-                <button onClick={() => quantityUp(product)}> + </button>
-            </QtyControl>
-            </div>
-            <div>{product.price}</div>
-            <button onClick={() => removeProduct(product)}>X</button>
+            <Name>
+                <p>{product.name}</p>
+            </Name>
+            <Qty>
+                <TitleQty>
+                    <p>Qtd:</p>
+                </TitleQty>
+                <QtyControl>
+                    <button disabled={product.qty === 1 && true} onClick={() => quantityDown(product)}> <MdRemove/> </button>
+                    <div>{product.qty}</div>
+                    <button onClick={() => quantityUp(product)}> <MdAdd/> </button>
+                </QtyControl>
+            </Qty>
+            <Price>{product.price}</Price>
+            <RemoveButton onClick={() => removeProduct(product)}>X</RemoveButton>
         </Container>
     );
 };

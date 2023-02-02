@@ -1,38 +1,51 @@
 import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
 import CartProductCard from "../CartProductCard";
-import { Container, CartHeader, Content, Checkout } from "./styles";
+import { 
+    Container, 
+    CartHeader, 
+    Content, 
+    Checkout, 
+    Title, 
+    CloseButton, 
+    Total 
+} from "./styles";
 
 interface Props {
     shoppingCart: IProductInShoppingCart[];
-    setState: React.Dispatch<React.SetStateAction<IProductInShoppingCart[]>>
+    setShoppingCart: React.Dispatch<React.SetStateAction<IProductInShoppingCart[]>>
+    isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const ShoppingCart: React.FC<Props> = props => {
 
-    const { shoppingCart, setState } = props;
+    const { shoppingCart, setShoppingCart, isOpen, setIsOpen } = props;
 
     const total = shoppingCart
         .reduce((acc, prod) => acc + parseFloat(prod.price) * prod.qty, 0)
 
     return (
-        <Container>
-            <CartHeader>Carrinho de compras</CartHeader>
+        <Container isOpen={isOpen}>
+            <CartHeader>
+                <Title>Carrinho de compras</Title>
+                <CloseButton onClick={() => setIsOpen(false)}>X</CloseButton>
+            </CartHeader>
             <Content>
                 {
                     shoppingCart.map(prod => 
                         <CartProductCard 
                             product={prod} 
                             state={shoppingCart} 
-                            setState={setState}
+                            setState={setShoppingCart}
                         /> 
                     )
                 }
 
-                <div>
+            </Content>
+                <Total>
                     <div>Total</div>
                     <div>{`R$${total}`}</div>
-                </div>    
-            </Content>
+                </Total>    
             <Checkout>Finalizar compra</Checkout>
         </Container>
     );
