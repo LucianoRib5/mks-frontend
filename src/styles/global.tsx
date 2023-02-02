@@ -13,5 +13,9 @@ export default createGlobalStyle`
         outline: 0;
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
+
+        ::-webkit-scrollbar {
+            display: none;
+        };
     };
 `;

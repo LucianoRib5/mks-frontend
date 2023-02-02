@@ -14,6 +14,7 @@ const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [shoppingCart, setShoppingCart] = useState<IProductInShoppingCart[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);   
+    const [isOpen, setIsOpen] = useState<boolean>(true);   
     
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
 
     return (
         <Body>
-            <Header/>
+            <Header setIsOpen={setIsOpen} qtyProducts={shoppingCart.length}/>
             <Main>
                 <ProductGrid>
                     {products.map(prod => 
@@ -47,7 +48,9 @@ const Home: React.FC = () => {
                 </ProductGrid>            
                 <ShoppingCart 
                     shoppingCart={shoppingCart} 
-                    setState={setShoppingCart}
+                    setShoppingCart={setShoppingCart}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
                 />
             </Main>
             <Footer/>
