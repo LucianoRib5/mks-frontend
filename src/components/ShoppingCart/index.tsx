@@ -33,7 +33,8 @@ const ShoppingCart: React.FC<Props> = props => {
             <Content>
                 {
                     shoppingCart.map(prod => 
-                        <CartProductCard 
+                        <CartProductCard
+                            key={prod.id} 
                             product={prod} 
                             state={shoppingCart} 
                             setState={setShoppingCart}
