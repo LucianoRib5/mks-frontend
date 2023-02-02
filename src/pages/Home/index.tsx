@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [shoppingCart, setShoppingCart] = useState<IProductInShoppingCart[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);   
-    const [isOpen, setIsOpen] = useState<boolean>(true);   
+    const [isOpen, setIsOpen] = useState<boolean>(false);   
     
     useEffect(() => {
         const fetchData = async () => {
