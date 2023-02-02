@@ -9,6 +9,7 @@ import ShoppingCart from "../../components/ShoppingCart";
 import { get } from "../../services/api"
 import { IProduct } from "../../types/IProduct";
 import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
+import Skeleton from '@mui/material/Skeleton';
 
 const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
@@ -38,12 +39,19 @@ const Home: React.FC = () => {
             <Main>
                 <ProductGrid>
                     {products.map(prod => 
-                        <CardBuyProduct 
-                            key={prod.id}
-                            state={shoppingCart}
-                            setState={setShoppingCart}
-                            product={prod}
-                        />
+                        <>
+                            {
+                                isLoading ? 
+                                    <CardBuyProduct 
+                                        key={prod.id}
+                                        state={shoppingCart}
+                                        setState={setShoppingCart}
+                                        product={prod}
+                                    /> :
+                                    <Skeleton variant="rounded" width={217} height={285} />
+                            }
+                        </>
+
                     )}
                 </ProductGrid>            
                 <ShoppingCart 
