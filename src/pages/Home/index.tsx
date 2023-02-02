@@ -7,13 +7,12 @@ import Main from "../../components/Main";
 import ProductGrid from "../../components/ProductGrid";
 import { get } from "../../services/api"
 import { IProduct } from "../../types/IProduct";
+import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
 
 const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-
-    console.log('products:', products);
-    
+    const [shoppingCart, setShoppingCart] = useState<IProductInShoppingCart[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);   
     
     useEffect(() => {
         const fetchData = async () => {
@@ -36,13 +35,12 @@ const Home: React.FC = () => {
             <Header/>
             <Main>
                 <ProductGrid>
-                    {products.map(p => 
+                    {products.map(prod => 
                         <CardBuyProduct 
-                            key={p.id} 
-                            name={p.name}
-                            description={p.description} 
-                            photo={p.photo}
-                            price={p.price}
+                            key={prod.id}
+                            state={shoppingCart}
+                            setState={setShoppingCart}
+                            product={prod}
                         />
                     )}
                 </ProductGrid>              
