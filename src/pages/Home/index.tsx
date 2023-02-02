@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
 import ProductGrid from "../../components/ProductGrid";
+import ShoppingCart from "../../components/ShoppingCart";
 import { get } from "../../services/api"
 import { IProduct } from "../../types/IProduct";
 import { IProductInShoppingCart } from "../../types/IProductInShoppingCart";
@@ -43,7 +44,11 @@ const Home: React.FC = () => {
                             product={prod}
                         />
                     )}
-                </ProductGrid>              
+                </ProductGrid>            
+                <ShoppingCart 
+                    shoppingCart={shoppingCart} 
+                    setState={setShoppingCart}
+                />
             </Main>
             <Footer/>
         </Body>
