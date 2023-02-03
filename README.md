@@ -17,6 +17,7 @@ Ferramentas utilizadas na construção do projeto:
 - [Typescript](https://www.typescriptlang.org/)
 - [Styled-components](https://styled-components.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
+- [Material-UI](https://mui.com/)
 - [Axios](https://axios-http.com/docs/intro)
 
 ### Pré-requisitos
@@ -46,7 +47,12 @@ $ npm run dev
 ```
 
 ### 📱 Layout 
-<!-- ![image]('') -->
+![image](https://user-images.githubusercontent.com/89327618/216482575-ba7f409f-e889-4149-b0c7-765e81bed58f.png)
+![image](https://user-images.githubusercontent.com/89327618/216482606-1e78af46-cc16-42ee-960f-dae3a2f79c4c.png)
+
+<h3 align="center"> 
+	🚧 mobile version in construction...  🚧
+</h3>
 
 ### Autor
 ---
