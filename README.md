@@ -1,7 +1,5 @@
 # MKS Sistemas
 
-## Teste Técnico para vaga de Desevolvedor Front-end na Empresa MKS Sistemas.
-
 ### ⚙️ Features
 
 - [x] Loja
